@@ -113,19 +113,13 @@ public class MainActivity extends AppCompatActivity implements ConnectivityManag
         {
             params=new HashMap<> ();
         }
-        params.put (
-                NetworkUtil.APIKeys.DISCOVER_WITH_GENRES,
-                String.valueOf (GenresDAO.getGenreIndex (
-                        preferences.getString (
-                                getString (R.string.pref_genre_list_key),
-                                getString (R.string.pref_genre_list_key
-                                )
-                        )
-                        )
-                )
-        );
+        String genre= String.valueOf (preferences.getString (getString (R.string.pref_genre_list_key), getString (R.string.genre_action)));
+        Log.i (TAG,genre);
+        params.put (NetworkUtil.APIKeys.DISCOVER_WITH_GENRES, String.valueOf (GenresDAO.getGenreIndex (genre)));
         params.put (NetworkUtil.APIKeys.INCLUDE_ADULT, String.valueOf (preferences.getBoolean (getString (R.string.pref_adult_content_key), MovieApplication.getmInstance ().getResources ().getBoolean (R.bool.adult_trigger_bool))));
-        params.put (NetworkUtil.APIKeys.DISCOVER_SORT_BY,preferences.getString (getString (R.string.pref_sortby_key),getString (R.string.pref_sortby_key)));
+        String sortBy=preferences.getString (getString (R.string.pref_sortby_key),getString (R.string.sortby_popularity));
+        Log.i (TAG,sortBy);
+        params.put (NetworkUtil.APIKeys.DISCOVER_SORT_BY,sortBy);
 
     }
     private boolean checkConnectivity()
@@ -175,7 +169,12 @@ public class MainActivity extends AppCompatActivity implements ConnectivityManag
 
         if(key.equals (getString (R.string.pref_adult_content_key)))
         {
-            Toast.makeText (this, "Changed", Toast.LENGTH_SHORT).show ();
+            Log.i (TAG,String.valueOf (
+                    sharedPreferences.getBoolean (
+                            key,
+                            MovieApplication.getmInstance ().getResources ().getBoolean (R.bool.adult_trigger_bool))
+            ));
+
             params.put (NetworkUtil.APIKeys.INCLUDE_ADULT,
                     String.valueOf (
                             sharedPreferences.getBoolean (

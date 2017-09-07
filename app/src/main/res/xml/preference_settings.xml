@@ -20,7 +20,7 @@
         android:entryValues="@array/pref_genres_values">
     </ListPreference>
     <ListPreference
-        android:defaultValue="@string/sortby_release_day"
+        android:defaultValue="@string/sortby_popularity_key"
         app:key="@string/pref_sortby_key"
         android:title="@string/pref_sortby_title"
         android:entries="@array/pref_sortby_labels"

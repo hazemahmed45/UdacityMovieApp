@@ -7,5 +7,10 @@
         app:showAsAction="always"
         app:actionViewClass="android.support.v7.widget.SearchView"
         android:title="Search"/>
-
+    <item
+        android:id="@+id/menu_searchscreen_favorite"
+        android:title="@string/favorite_menu"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_full_heart">
+    </item>
 </menu>

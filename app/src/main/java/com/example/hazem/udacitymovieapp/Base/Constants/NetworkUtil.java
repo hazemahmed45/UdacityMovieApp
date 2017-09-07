@@ -297,7 +297,7 @@ public class NetworkUtil {
     }
     public static class APIKeys {
         public static final String ApiKey="api_key";
-        public static final String ApiValue="############################";//TODO put your API key here and it should work fine
+        public static final String ApiValue="##################";//TODO add your api key here
         public static final String QUERY ="query";//string
         public static final String PAGE="page";// integar defult=1 range 1-1000
         public static final String INCLUDE_ADULT="include_adult";//boolean

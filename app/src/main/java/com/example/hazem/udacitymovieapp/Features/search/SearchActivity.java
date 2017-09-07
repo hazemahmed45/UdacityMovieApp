@@ -11,6 +11,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.example.hazem.udacitymovieapp.Base.Constants.NetworkUtil;
 import com.example.hazem.udacitymovieapp.Base.MovieApplication;
 import com.example.hazem.udacitymovieapp.Features.main.adapter.MovieAdapter;
+import com.example.hazem.udacitymovieapp.Features.main.listeners.EndlessRecyclerViewScrollListener;
 import com.example.hazem.udacitymovieapp.Models.DiscoverMovieDTO;
 import com.example.hazem.udacitymovieapp.Models.MovieListDTO;
 import com.example.hazem.udacitymovieapp.R;
@@ -34,12 +36,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SearchActivity extends AppCompatActivity {
+    private static final String TAG="com.example.hazem.udacitymovieapp.Features.search.SearchActivity";
     private static final int GRID_COLUMNS=2;
-    SearchView searchView;
-    RecyclerView recyclerView;
-    MovieAdapter adapter;
-    ProgressBar progressBar;
-    Map<String,String > params;
+    private SearchView searchView;
+    private RecyclerView recyclerView;
+    private MovieAdapter adapter;
+    private ProgressBar progressBar;
+    private GridLayoutManager gridLayoutManager;
+    private boolean adju=false;
+    String searchQuery="/";
+    private Map<String,String > params;
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
@@ -52,7 +58,7 @@ public class SearchActivity extends AppCompatActivity {
     {
         progressBar= (ProgressBar) findViewById (R.id.pb_search);
         recyclerView= (RecyclerView) findViewById (R.id.rv_searchlist);
-        GridLayoutManager gridLayoutManager=new GridLayoutManager (this,GRID_COLUMNS);
+        gridLayoutManager=new GridLayoutManager (this,GRID_COLUMNS);
         recyclerView.setLayoutManager (gridLayoutManager);
         adapter=new MovieAdapter (this,new ArrayList<DiscoverMovieDTO> ());
         recyclerView.setAdapter (adapter);
@@ -66,6 +72,20 @@ public class SearchActivity extends AppCompatActivity {
                 NavigationUtils.NavigateToMovieDetailsScreen (SearchActivity.this,discoverMovieDTO.getId ());
             }
         });
+//        recyclerView.addOnScrollListener (new EndlessRecyclerViewScrollListener (gridLayoutManager) {
+//            @Override
+//            public void onLoadMore (int page, int totalItemsCount, RecyclerView view) {
+//                Toast.makeText (SearchActivity.this, page+"", Toast.LENGTH_SHORT).show ();
+//                if(adju)
+//                {
+//                    resetState ();
+//                    adju=false;
+//                }
+//                params.put (NetworkUtil.APIKeys.PAGE, String.valueOf (page));
+//                URL searchUrl= NetworkUtil.getSearchQueryUrl (String.valueOf (searchView.getQuery ()),params);
+//                new SearchTask ().execute (searchUrl);
+//            }
+//        });
     }
     private void setParams()
     {
@@ -77,7 +97,7 @@ public class SearchActivity extends AppCompatActivity {
 
         boolean includeAdult=preferences.getBoolean (getString (R.string.pref_adult_content_key),false);
         params.put (NetworkUtil.APIKeys.INCLUDE_ADULT, String.valueOf (includeAdult));
-
+        params.put (NetworkUtil.APIKeys.PAGE,"1");
     }
     @Override
     public boolean onCreateOptionsMenu (Menu menu) {
@@ -108,13 +128,15 @@ public class SearchActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener (new SearchView.OnQueryTextListener () {
             @Override
             public boolean onQueryTextSubmit (String query) {
-                return false;
+                setSearchQuery (query);
+
+                return true;
             }
 
             @Override
             public boolean onQueryTextChange (String newText) {
                 setSearchQuery (newText);
-                return false;
+                return true;
             }
         });
         searchView.setFocusable(true);
@@ -134,6 +156,11 @@ public class SearchActivity extends AppCompatActivity {
                 onBackPressed ();
                 break;
             }
+            case R.id.menu_searchscreen_favorite:
+            {
+                NavigationUtils.NavigateToFavoritesScreen (this);
+                break;
+            }
         }
         return super.onOptionsItemSelected (item);
     }
@@ -142,6 +169,7 @@ public class SearchActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute () {
             progressBar.setVisibility (View.VISIBLE);
+
             super.onPreExecute ();
         }
 
@@ -162,7 +190,13 @@ public class SearchActivity extends AppCompatActivity {
             super.onPostExecute (jsonResponse);
             if(jsonResponse!=null)
             {
-                adapter.resetArray ();
+                if(!searchQuery.equals (searchView.getQuery ().toString ()))
+                {
+                    Log.i (TAG,searchView.getQuery ().toString ()+" "+searchQuery.equals (searchView.getQuery ().toString ())+" "+searchQuery);
+                    adapter.resetArray ();
+                    searchQuery=searchView.getQuery ().toString ();
+                    adju=true;
+                }
                 progressBar.setVisibility (View.GONE);
                 Gson gson= MovieApplication.getmInstance ().getGson ();
                 MovieListDTO movieListDTO=gson.fromJson (jsonResponse,new TypeToken<MovieListDTO>(){}.getType ());
