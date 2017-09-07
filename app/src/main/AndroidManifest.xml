@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.hazem.udacitymovieapp">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:name=".Base.MovieApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/udacity_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Features.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Features.moviedetails.MovieDetailsActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".Features.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Features.main.MainActivity">
+            </meta-data>
+        </activity>
+
+        <provider
+            android:name=".Features.DB.MovieProvider"
+            android:authorities="com.example.hazem.udacitymovieapp"
+            android:exported="false">
+        </provider>
+
+        <activity android:name=".Features.favorites.FavoritesScreen">
+        </activity>
+        <activity android:name=".Features.settings.SettingsActivity">
+        </activity>
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".Features.search.SearchActivity" />
+        <activity android:name=".Features.search.SearchActivity">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.SEARCH">
+                </action>
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.VIEW">
+                </action>
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable">
+            </meta-data>
+        </activity>
+    </application>
+
+</manifest>

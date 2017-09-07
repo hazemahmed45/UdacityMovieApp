@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.hazem.udacitymovieapp.Features.favorites.FavoritesScreen">
+        <ListView
+            android:id="@+id/lv_favorites"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+        <LinearLayout
+            android:id="@+id/ll_empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="@dimen/item_movie_width"
+                android:layout_height="@dimen/item_movie_height"
+                android:src="@drawable/ic_lace"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Empty favorite movie list"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

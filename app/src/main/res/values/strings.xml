@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">Udacity Movie App</string>
+    <string name="add_favorite_button">Add from \n favorite</string>
+    <string name="remove_favorite_button">Remove from \n favorite</string>
+    <string name="trailer">Trailers:</string>
+    <string name="favorite_menu">Favorite</string>
+    <string name="settings_menu">Settings</string>
+    <string name="search_menu">Search</string>
+    <string name="search_hint">Search...</string>
+
+
+    <string name="pref_adult_content_off">Off</string>
+    <string name="pref_adult_content_on">On (استغفر الله)</string>
+    <string name="pref_adult_content_key" translatable="false">adult_key</string>
+    <string name="pref_adult_content_title">Adult Content</string>
+    <string name="pref_genre_list_title">Genre</string>
+    <string name="pref_genre_list_key" translatable="">genre_key</string>
+
+
+    <string name="genre_action">Action</string>
+    <string name="genre_adventure">Adventure</string>
+    <string name="genre_animation">Animation</string>
+    <string name="genre_comedy">Comedy</string>
+    <string name="genre_crime">Crime</string>
+    <string name="genre_documentary">Documentary</string>
+    <string name="genre_drama">Drama</string>
+    <string name="genre_family">Family</string>
+    <string name="genre_fantasy">Fantasy</string>
+    <string name="genre_history">History</string>
+    <string name="genre_music">Music</string>
+    <string name="genre_horror">Horror</string>
+    <string name="genre_mystery">Mystery</string>
+    <string name="genre_romance">Romance</string>
+    <string name="genre_science_fiction">Science Fiction</string>
+    <string name="genre_tv_movie">TV Movie</string>
+    <string name="genre_thriller">Thriller</string>
+    <string name="genre_war">War</string>
+    <string name="genre_western">Western</string>
+
+    <string name="genre_action_key" translatable="false">action</string>
+    <string name="genre_adventure_key" translatable="false">adventure</string>
+    <string name="genre_animation_key" translatable="false">animation</string>
+    <string name="genre_comedy_key" translatable="false">comedy</string>
+    <string name="genre_crime_key" translatable="false">crime</string>
+    <string name="genre_documentary_key" translatable="false">documentary</string>
+    <string name="genre_drama_key" translatable="false">drama</string>
+    <string name="genre_family_key" translatable="false">family</string>
+    <string name="genre_fantasy_key" translatable="false">fantasy</string>
+    <string name="genre_history_key" translatable="false">history</string>
+    <string name="genre_music_key" translatable="false">music</string>
+    <string name="genre_horror_key" translatable="false">horror</string>
+    <string name="genre_mystery_key" translatable="false">mystery</string>
+    <string name="genre_romance_key" translatable="false">romance</string>
+    <string name="genre_science_fiction_key" translatable="false">science fiction</string>
+    <string name="genre_tv_movie_key" translatable="false">tv movie</string>
+    <string name="genre_thriller_key" translatable="false">thriller</string>
+    <string name="genre_war_key" translatable="false">war</string>
+    <string name="genre_western_key" translatable="false">western</string>
+
+
+    <string name="pref_sortby_key">sortby_key</string>
+    <string name="pref_sortby_title">Sort by</string>
+    <string name="sortby_release_day_key">release_date.desc</string>
+    <string name="sortby_vote_count_key">vote_count.desc</string>
+    <string name="sortby_popularity_key">popularity.desc</string>
+
+    <string name="sortby_release_day">Date</string>
+    <string name="sortby_vote_count">Rate</string>
+    <string name="sortby_popularity">Popularity</string>
+</resources>

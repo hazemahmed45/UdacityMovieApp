@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/search_menu"
+        android:id="@+id/menu_mainscreen_search"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_search"
+        android:contentDescription="@string/search_menu">
+    </item>
+    <item
+        android:id="@+id/menu_mainscreen_favorite"
+        android:title="@string/favorite_menu"
+        android:contentDescription="@string/favorite_menu"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/menu_mainscreen_settings"
+        android:title="@string/settings_menu"
+        android:contentDescription="@string/settings_menu"
+        app:showAsAction="never">
+    </item>
+    
+</menu>

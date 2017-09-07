@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+    <CheckBoxPreference
+        android:title="@string/pref_adult_content_title"
+        android:key="@string/pref_adult_content_key"
+        android:defaultValue="@bool/adult_trigger_bool"
+        android:summaryOff="@string/pref_adult_content_off"
+        android:summaryOn="@string/pref_adult_content_on"
+        >
+    </CheckBoxPreference>
+    <ListPreference
+        android:defaultValue="@string/genre_action"
+        app:key="@string/pref_genre_list_key"
+        android:title="@string/pref_genre_list_title"
+        android:entries="@array/pref_genres_labels"
+        android:entryValues="@array/pref_genres_values">
+    </ListPreference>
+    <ListPreference
+        android:defaultValue="@string/sortby_release_day"
+        app:key="@string/pref_sortby_key"
+        android:title="@string/pref_sortby_title"
+        android:entries="@array/pref_sortby_labels"
+        android:entryValues="@array/pref_sortby_values">
+    </ListPreference>
+</PreferenceScreen>

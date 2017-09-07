@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="pref_genres_values">
+        <item>@string/genre_action</item>
+        <item>@string/genre_adventure</item>
+        <item>@string/genre_animation</item>
+        <item>@string/genre_comedy</item>
+        <item>@string/genre_crime</item>
+        <item>@string/genre_documentary</item>
+        <item>@string/genre_drama</item>
+        <item>@string/genre_family</item>
+        <item>@string/genre_fantasy</item>
+        <item>@string/genre_history</item>
+        <item>@string/genre_horror</item>
+        <item>@string/genre_music</item>
+        <item>@string/genre_mystery</item>
+        <item>@string/genre_romance</item>
+        <item>@string/genre_science_fiction</item>
+        <item>@string/genre_thriller</item>
+        <item>@string/genre_tv_movie</item>
+        <item>@string/genre_war</item>
+        <item>@string/genre_western</item>
+    </array>
+    <array name="pref_genres_labels">
+        <item>@string/genre_action_key</item>
+        <item>@string/genre_adventure_key</item>
+        <item>@string/genre_animation_key</item>
+        <item>@string/genre_comedy_key</item>
+        <item>@string/genre_crime_key</item>
+        <item>@string/genre_documentary_key</item>
+        <item>@string/genre_drama_key</item>
+        <item>@string/genre_family_key</item>
+        <item>@string/genre_fantasy_key</item>
+        <item>@string/genre_history_key</item>
+        <item>@string/genre_horror_key</item>
+        <item>@string/genre_music_key</item>
+        <item>@string/genre_mystery_key</item>
+        <item>@string/genre_romance_key</item>
+        <item>@string/genre_science_fiction_key</item>
+        <item>@string/genre_thriller_key</item>
+        <item>@string/genre_tv_movie_key</item>
+        <item>@string/genre_war_key</item>
+        <item>@string/genre_western_key</item>
+    </array>
+
+    <array name="pref_sortby_values">
+        <item>@string/sortby_popularity_key</item>
+        <item>@string/sortby_release_day_key</item>
+        <item>@string/sortby_vote_count_key</item>
+    </array>
+    <array name="pref_sortby_labels">
+        <item>@string/sortby_popularity</item>
+        <item>@string/sortby_release_day</item>
+        <item>@string/sortby_vote_count</item>
+    </array>
+</resources>
