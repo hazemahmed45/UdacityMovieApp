@@ -44,6 +44,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_search);
+        getSupportActionBar ().setDisplayHomeAsUpEnabled (true);
         setIDs ();
         setParams ();
     }
@@ -126,6 +127,11 @@ public class SearchActivity extends AppCompatActivity {
         {
             case R.id.menu_searchscreen_search:
             {
+                break;
+            }
+            case android.R.id.home:
+            {
+                onBackPressed ();
                 break;
             }
         }
